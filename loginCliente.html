@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registar</title>
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/logincliente.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css" />
+    <!-- Adicionando as dependências do intl-tel-input -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css" />
+
+    <!-- Icone da pagina -->
+    <link rel="apple-touch-icon" sizes="180x180" href="Imagem/icone/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Imagem/icone/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Imagem/icone/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <!-- Icone da pagina -->
+
+    <!-- Icones de preloader-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/preloader.css">
+    <script src="js/preloader.js" defer></script>
+    <!-- Icones de preloader-->
+</head>
+
+<body>
+    <!-- Card de Mensagem (oculto) -->
+    <div id="message-card" class="message-card">
+        <div class="message-content">
+            <span id="message-text"></span>
+        </div>
+    </div>
+
+    <!-- Preloader  -->
+    <div id="preloader" style="display: none;">
+        <div class="loader">
+            <i class="fa-solid fa-car fa-bounce"></i>
+        </div>
+        <p id="loading-message">Carregando...</p> 
+    </div>
+
+
+    <div class="container">
+        <div class="forms-container">
+            <div class="signin-signup">
+
+                <!-- Login cliente/empresa -->
+                <form action="php/login.php" class="sign-in-form" method="post">
+                    <h2 class="title">Login</h2>
+                    <!-- Seletor de tipo de usuário -->
+                    <div class="input-field select-wrapper">
+                        <i class="fas fa-user-alt"></i>
+                        <select name="tipo_usuario" required class="select-field">
+                            <option value="" disabled selected>Escolha tipo de conta</option>
+                            <option value="cliente">Cliente</option>
+                            <option value="concessionaria">Stand</option>
+                        </select>
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="email" placeholder="Email" name="email" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" name="senha" required />
+                    </div>
+                    <input type="submit" value="Login" class="btn solid" />
+                    <p class="corporacao"><a href="recuperar_senha.html">Recuperar senha</a></p>
+                </form>
+
+
+                <!-- Registrar cliente -->
+                <form action="php/registrar-cliente.php" class="sign-up-form" method="post">
+                    <h2 class="title">Registar</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username" name="nome_cliente" required minlength="3" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email" name="email_cliente" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" name="senha_cliente" required minlength="6" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="telefone" name="telefone_cliente" required />
+                    </div>
+                    <input type="submit" class="btn" value="Registrar" />
+                    <p class="corporacao">Registar sua empresa? <a href="Registrar-corporacao.html">Registe-se já.</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+
+        <!-- Painel de textos -->
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>Novo aqui?</h3>
+                    <p>
+                        Faça login e entre a nossa equipa
+                    </p>
+                    <button class="btn transparent" id="sign-up-btn">
+                        Registe-se
+                    </button>
+                </div>
+                <img src="svg/log.svg" class="image" alt="" />
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>Você já é um de nós?</h3>
+                    <p>
+                        Bem-vindo de volta! Faça login na sua conta para acessar todas as suas informações e continuar
+                        sua jornada conosco.
+                    </p>
+                    <button class="btn transparent" id="sign-in-btn">
+                        Login
+                    </button>
+                </div>
+                <img src="svg/register.svg" class="image" alt="" />
+            </div>
+        </div>
+    </div>
+    <!-- Adicionando o script do intl-tel-input -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
+    <script>
+
+        // Inicializando o intl-tel-input para o campo de telefone
+        const phoneInput = document.querySelector("#telefone");
+        const iti = window.intlTelInput(phoneInput, {
+            initialCountry: "pt",
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+        });
+
+        // JS para o card de aviso
+        function showMessage(message, type) {
+            const messageCard = document.getElementById('message-card');
+            const messageText = document.getElementById('message-text');
+
+            messageText.innerText = message;
+
+            if (type === 'success') {
+                messageCard.style.borderColor = 'green';
+            } else {
+                messageCard.style.borderColor = 'red';
+            }
+
+            messageCard.classList.add('show');
+
+            setTimeout(() => {
+                messageCard.classList.remove('show');
+            }, 2500);
+        }
+
+        // Enviar o formulário de registro via AJAX
+        document.querySelector('.sign-up-form').addEventListener('submit', function (event) {
+            event.preventDefault(); 
+
+            document.getElementById('preloader').style.display = 'flex';
+            document.getElementById('loading-message').innerText = "Carregando..."; 
+
+            const formData = new FormData(this);
+            fetch('php/registrar-cliente.php', {
+                method: 'POST',
+                body: formData,
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('preloader').style.display = 'none';
+                    showMessage(data.message, data.type);
+                })
+                .catch(error => {
+                    document.getElementById('preloader').style.display = 'none';
+                    showMessage("Erro ao enviar dados.", 'error');
+                });
+        });
+
+        // Enviar o formulário de login via AJAX
+        document.querySelector('.sign-in-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            document.getElementById('preloader').style.display = 'flex';
+            document.getElementById('loading-message').innerText = "Carregando..."; 
+
+            const formData = new FormData(this);
+            fetch('php/login.php', {
+                method: 'POST',
+                body: formData,
+            })
+                .then(response => response.json())
+                .then(data => {
+                    showMessage(data.message, data.type);
+                    if (data.type === 'success') {
+                        window.location.href = 'index.php';
+                    }
+                })
+                .catch(error => {
+                    showMessage("Erro ao tentar fazer login.", 'error');
+                });
+        });
+
+
+    </script>
+
+    <script src="js/registrarcliente.js"></script>
+</body>
+
+</html>

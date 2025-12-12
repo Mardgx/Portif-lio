@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registar</title>
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/logincliente.css" />
+</head>
+
+<body>
+    <!-- Card de Mensagem (oculto) -->
+    <div id="message-card" class="message-card">
+        <div class="message-content">
+            <span id="message-text"></span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="forms-container">
+            <div class="signin-signup">
+
+                <!-- Login cliente -->
+                <form action="php/login_empresa.php" class="sign-in-form" method="post">
+                    <h2 class="title">Login Concessionária</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="email" placeholder="Email" name="email_concessionaria" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Senha" name="senha_concessionaria" required />
+                    </div>
+                    <input type="submit" value="Login" class="btn solid" />
+                </form>
+            </div>
+        </div>
+
+        <!-- Painel de textos -->
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>Olá, bom trabalho!</h3>
+                </div>
+                <img src="svg/log.svg" class="image" alt="" />
+            </div>
+        </div>
+
+        <script>
+            // JS para o card de aviso
+            function showMessage(message, type) {
+                const messageCard = document.getElementById('message-card');
+                const messageText = document.getElementById('message-text');
+
+                messageText.innerText = message;
+
+                if (type === 'success') {
+                    messageCard.style.borderColor = 'green';
+                } else {
+                    messageCard.style.borderColor = 'red';
+                }
+
+                messageCard.classList.add('show');
+
+                setTimeout(() => {
+                    messageCard.classList.remove('show');
+                }, 2500);
+            }
+
+            document.querySelector('.sign-in-form').addEventListener('submit', function (event) {
+                event.preventDefault(); 
+
+                const formData = new FormData(this);
+                fetch('php/login_empresa.php', {
+                    method: 'POST',
+                    body: formData,
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        showMessage(data.message, data.type); 
+
+                        if (data.type === 'success') {
+                            window.location.href = 'electric.html'; 
+                        }
+                    })
+                    .catch(error => {
+                        showMessage("Erro ao tentar fazer login.", 'error');
+                    });
+            });
+
+
+        </script>
+
+        <script src="js/registrarcliente.js"></script>
+</body>
+
+</html>

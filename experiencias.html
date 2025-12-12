@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiências - Matheus Rodrigues</title>
+    <link rel="stylesheet" href="css/portifolio.css">
+    <link rel="stylesheet" href="css/resposivo.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Script js-->
+    <script src="js/btn-menu-mob.js" defer></script>
+
+</head>
+
+<body>  
+    <div class="container">
+        <div class="container">
+        <header>
+            <a href="index.html" style="text-decoration: none; color: inherit;"><h1 data-aos="fade-down" data-aos-duration="1500" class="logo">MSR</h1></a>
+            <nav class="menu-desktop">
+                <a data-aos="fade-down" data-aos-duration="1500" href="">Projetos</a>
+                <a data-aos="fade-down" data-aos-duration="2000" href="experiencias.html">Experiências</a>
+                <a data-aos="fade-down" data-aos-duration="2000" href="">Sobre Mim</a>
+
+            </nav>
+
+            <button data-aos="fade-down" data-aos-duration="1500" class="btn-signing">Contactos</button>
+
+            <div class="btn-menu-mob" id="btn-menu-mob">
+                <div class="line-menumob1"></div>
+                <div class="line-menumob2"></div>
+            </div>
+            <section class="menu-mobile" id="menu-mobile">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Index</a></li>
+                        <li><a href="#">Sobre Mim</a></li>
+                        <li><a href="">Contactos</a></li>
+                    </ul>
+                </nav>
+            </section>
+        </header>
+
+        <main>
+            <section class="experiencias" id="experiencias">
+                <div class="interface">
+                    <h2 class="exp-title">Experiências</h2>
+
+                    <div class="timeline" id="timeline">
+
+                        <article class="timeline-item" data-year="2024">
+                            <div class="content">
+                                <div class="meta">
+                                    <span class="date">Presente</span>
+                                </div>
+                                <h3>Revigres</h3>
+                                <p>Responsável pela construção e atualização de um novo portal do colaborador, criação de
+                                    dashboards em Power BI e gestão do software GLPI.</p>
+                            </div>
+                        </article>
+
+                        <article class="timeline-item" data-year="2023">
+                            <div class="content">
+                                <div class="meta">
+                                    <span class="date">2025 - (Junho a Julho)</span>
+                                </div>
+                                <h3>Revigres</h3>
+                                <p>Criação de dashboards em Power BI e implementação do software GLPI.</p>
+                            </div>
+                        </article>
+
+                        <article class="timeline-item" data-year="2022">
+                            <div class="content">
+                                <div class="meta">
+                                    <span class="date">2024 - (Maio a Julho)</span>
+                                </div>
+                                <h3>Revigres</h3>
+                                <p>Desenvolvimento de dashboards em Power BI e gestão de um inquérito de satisfação dos clientes
+                                    em Google Forms.</p>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            duration: 900,
+            easing: 'ease-out-cubic'
+        });
+
+        (function () {
+            if (!('IntersectionObserver' in window)) {
+                document.querySelectorAll('.timeline-item').forEach(function (el) {
+                    el.classList.add('visible');
+                });
+                return;
+            }
+
+            const items = document.querySelectorAll('.timeline-item');
+            const options = {
+                root: null,
+                rootMargin: '0px 0px -12% 0px',
+                threshold: 0.12
+            };
+
+            const obs = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, options);
+
+            items.forEach(item => obs.observe(item));
+        })();
+    </script>
+</body>
+
+</html>

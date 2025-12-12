@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Aluguel de Carros Elétricos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #5f5f5fa6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .faq-container {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(216, 216, 216, 0.1);
+            width: 90%;
+            max-width: 800px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 32px;
+            text-align: center;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            background-color: #eaeaea;
+            border-radius: 10px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .faq-item:hover {
+            background-color: #dcdcdc;
+        }
+
+        .faq-item h2 {
+            font-size: 18px;
+            margin: 0;
+            color: #474747;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .faq-item h2::after {
+            content: '\25BC';
+            font-size: 16px;
+            color: #000;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .faq-item.open h2::after {
+            transform: rotate(180deg);
+        }
+
+        .faq-item p {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #333;
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .faq-item.open p {
+            display: block;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .back-link a {
+            background-color: #000;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .back-link a:hover {
+            background-color: #444;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                align-items: flex-start;
+                padding: 20px;
+                height: auto;
+            }
+            .faq-container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+            .faq-item h2 {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="faq-container">
+        <h1>Perguntas Frequentes</h1>
+    
+        <div class="faq-item">
+            <h2>Como faço para alugar um carro elétrico?</h2>
+            <p>Para alugar um carro elétrico, basta aceder ao nosso site, escolher o modelo desejado, preencher os seus dados e concluir a reserva.</p>
+        </div>
+    
+        <div class="faq-item">
+            <h2>Quais os documentos necessários?</h2>
+            <p>Vai precisar de uma carta de condução válida, um cartão de crédito e um documento de identidade (BI ou passaporte).</p>
+        </div>
+    
+        <div class="faq-item">
+            <h2>Como faço para carregar o carro elétrico?</h2>
+            <p>Os carros podem ser carregados em estações públicas ou em casa com um carregador adequado.</p>
+        </div>
+    
+        <div class="faq-item">
+            <h2>Posso devolver o carro noutro local?</h2>
+            <p>Sim, mas essa opção pode envolver uma taxa adicional, que será informada durante a reserva.</p>
+        </div>
+    
+        <div class="back-link">
+            <a href="electric.html">Voltar à página inicial</a>
+        </div>
+    </div>
+    
+    <script>
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+
+</html>

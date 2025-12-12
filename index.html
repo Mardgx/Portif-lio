@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Matheus Rodrigues — Portfólio</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/portifolio.css">
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!--Link do robo-->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.16/build/spline-viewer.js"></script>
+
+    <!-- Main JS (deferred) -->
+    <script src="js/main.js" defer></script>
+
+</head>
+
+<body>
+    <!-- Gradiente leve -->
+    <img class="image-gradient" src="Imagem/gradient.png" alt="gradient" style="opacity:0.4;">
+    <div class="layer" aria-hidden="true" style="box-shadow:0 0 300px 8px white;"></div>
+
+    <div class="container">
+        <header>
+            <a href="electric.html" class="logo-link" aria-label="MSR — Início"
+                style="text-decoration:none;color:inherit;">
+                <h1 data-aos="fade-down" data-aos-duration="1200" class="logo">MSR</h1>
+            </a>
+
+            <nav class="menu-desktop">
+                <a data-aos="fade-down" data-aos-duration="1800" href="#sobre-mim">Sobre Mim</a>
+                <a data-aos="fade-down" data-aos-duration="1600" href="#experiencias">Experiências</a>
+                <a data-aos="fade-down" data-aos-duration="1400" href="#projetos">Projetos</a>
+            </nav>
+
+            <button data-aos="fade-down" data-aos-duration="1500" class="btn-signing open-contact-modal"
+                aria-controls="contactModal">Contactos</button>
+
+            <button class="btn-menu-mob" id="btn-menu-mob" aria-label="Abrir menu">
+                <span class="line-menumob line1"></span>
+                <span class="line-menumob line2"></span>
+            </button>
+
+            <section class="menu-mobile" id="menu-mobile" aria-hidden="true">
+                <nav>
+                    <ul>
+                        <li><a href="#experiencias" class="mobile-link">Experiências</a></li>
+                        <li><a href="#sobre-mim" class="mobile-link">Sobre Mim</a></li>
+                        <li><a href="#contactos" class="mobile-link">Contactos</a></li>
+                    </ul>
+                </nav>
+            </section>
+        </header>
+
+        <!-- HERO -->
+        <main id="main-hero">
+            <div class="content">
+                <div class="tag-box" data-aos="fade-zoom-in" data-aos-duration="1200" data-aos-delay="200">
+                    <div class="tag">Instalar CV &wedbar;</div>
+                </div>
+
+                <h1 data-aos="fade-zoom-in" data-aos-duration="1400" data-aos-delay="250">
+                    Matheus Rodrigues<br>Portfólio
+                </h1>
+
+                <p class="description" data-aos="fade-zoom-in" data-aos-duration="1600" data-aos-delay="300">
+                    Um desenvolvedor back-end dinâmico com curiosidade para novas tecnologias...
+                </p>
+
+                <div class="buttons" data-aos="fade-zoom-in" data-aos-duration="1800" data-aos-delay="350">
+                    <a href="#projetos" class="btn-get-started">Projetos</a>
+                    <a href="#sobre-mim" class="btn-signing-main">Sobre Mim</a>
+                </div>
+            </div>
+
+            <!-- Robô 3D lazy-load -->
+            <spline-viewer class="robot-3d" url="https://prod.spline.design/UGGDRuV8eTcaYKl0/scene.splinecode"
+                tabindex="0" title="Robot 3D" loading="lazy"></spline-viewer>
+        </main>
+
+        <!-- SOBRE MIM -->
+        <section class="sobre-mim" id="sobre-mim">
+            <div class="sobre-container">
+                <div class="sobre-texto" data-aos="fade-right" data-aos-duration="1200">
+                    <h2>Sobre Mim</h2>
+                    <p>Sou um desenvolvedor back-end apaixonado por tecnologia, sempre em busca de novos desafios e
+                        aprendizado contínuo. Tenho experiência com lógica de programação, APIs e desenvolvimento de
+                        soluções eficientes.</p>
+                    <p>Gosto de trabalhar em equipa, resolver problemas complexos e transformar ideias em projetos
+                        funcionais.</p>
+                </div>
+
+                <div class="sobre-imagem" data-aos="fade-left" data-aos-duration="1200">
+                    <img src="Imagem/eu.jpeg" alt="Foto de Matheus Rodrigues" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIÊNCIAS -->
+        <section class="experiencias" id="experiencias">
+            <div class="interface">
+                <h2 class="exp-title">Experiências</h2>
+
+                <div class="timeline-light">
+                    <div class="timeline-item-light">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="date">Presente</span>
+                            <h3>Revigres</h3>
+                            <p>Construção e atualização de portal do colaborador, dashboards em Power BI e gestão do
+                                GLPI.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item-light">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="date">2023 (Jun-Jul)</span>
+                            <h3>Revigres</h3>
+                            <p>Criação de dashboards em Power BI e implementação do software GLPI.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item-light">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="date">2022 (Mai-Jul)</span>
+                            <h3>Revigres</h3>
+                            <p>Desenvolvimento de dashboards em Power BI e gestão de inquérito de satisfação.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJETOS -->
+        <section class="projetos">
+            <div class="interface">
+                <h2 class="exp-title" data-aos="fade-up">Projetos</h2>
+
+                <div class="projetos-container" id="projetos">
+                    <!-- Projeto 1: Site -->
+                    <div class="projeto-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="projeto-imagem">
+                            <img src="Imagem/ElectricRent.png" alt="Projeto Site" loading="lazy">
+                        </div>
+                        <div class="projeto-conteudo">
+                            <h3>Website Portfólio</h3>
+                            <p>Desenvolvimento de um site responsivo e moderno utilizando HTML, CSS e JS. Foco em
+                                performance e experiência do usuário.</p>
+                            <a href="electric.html" class="btn-get-started">Ver Site</a>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 2: Power BI -->
+                    <div class="projeto-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="projeto-imagem">
+                            <img src="Imagem/pbi.png" alt="Projeto Power BI" loading="lazy">
+                        </div>
+                        <div class="projeto-conteudo">
+                            <h3>Dashboard Power BI</h3>
+                            <p>Criação de dashboards interativos em Power BI para análise de dados, com visualizações e
+                                indicadores estratégicos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="contactModal" class="modal-contactos" aria-hidden="true" role="dialog" aria-modal="true"
+        aria-labelledby="modalTitle">
+        <div class="modal-content">
+            <button class="close-button" aria-label="Fechar">&times;</button>
+            <h2 id="modalTitle">Meus Contactos</h2>
+            <div class="contact-info">
+                <p><strong>Email:</strong> seu.email@exemplo.com</p>
+                <p><strong>LinkedIn:</strong> <a href="[LINK DO SEU LINKEDIN]" target="_blank">Matheus Rodrigues</a></p>
+                <p><strong>GitHub:</strong> <a href="[LINK DO SEU GITHUB]" target="_blank">seunome</a></p>
+                <p><strong>Telefone/WhatsApp:</strong> +351 912 345 678</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- AOS init -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        if (window.AOS) {
+            AOS.init({
+                once: true,            // animações uma vez só
+                duration: 700,         // duração curta
+                easing: 'ease-out-cubic'
+            });
+        }
+
+        // Robô mais leve com threshold de scroll
+        let ultimaPosicao = window.pageYOffset;
+        let ticking = false;
+
+        window.addEventListener('scroll', () => {
+            const posicaoAtual = window.pageYOffset;
+
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    if (posicaoAtual > ultimaPosicao) {
+                        robo3D.style.opacity = '0';
+                    } else {
+                        robo3D.style.opacity = '1';
+                    }
+                    ultimaPosicao = posicaoAtual;
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // --- Lógica do Modal de Contactos ---
+        const contactModal = document.getElementById('contactModal');
+        const openModalBtn = document.querySelector('.open-contact-modal');
+        const closeModalBtn = document.querySelector('.close-button');
+
+        function openModal() {
+            contactModal.classList.add('is-visible');
+            contactModal.setAttribute('aria-hidden', 'false');
+            closeModalBtn.focus();
+        }
+
+        function closeModal() {
+            contactModal.classList.remove('is-visible');
+            contactModal.setAttribute('aria-hidden', 'true');
+            openModalBtn.focus();
+        }
+
+        if (openModalBtn) {
+            openModalBtn.addEventListener('click', openModal);
+        }
+
+        if (closeModalBtn) {
+            closeModalBtn.addEventListener('click', closeModal);
+        }
+
+        if (contactModal) {
+            contactModal.addEventListener('click', (e) => {
+                if (e.target === contactModal) {
+                    closeModal();
+                }
+            });
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && contactModal.classList.contains('is-visible')) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+
+</html>

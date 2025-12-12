@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registar</title>
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/logincliente.css" />
+
+    <!-- Icone da pagina -->
+    <link rel="apple-touch-icon" sizes="180x180" href="Imagem/icone/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Imagem/icone/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Imagem/icone/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <!-- Icone da pagina -->
+
+    <!-- Icones de preloader-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/preloader.css">
+    <script src="js/preloader.js" defer></script>
+    <!-- Icones de preloader-->
+     
+</head>
+
+<body class="page-cadastro">
+    <!-- Preloader  -->
+    <div id="preloader">
+        <div class="loader">
+            <i class="fa-solid fa-car fa-bounce"></i>
+        </div>
+    </div>
+
+
+    <!-- Card de Mensagem (oculto)-->
+    <div id="message-card" class="message-card">
+        <div class="message-content">
+            <span id="message-text"></span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="forms-container">
+            <div class="signin-signup">
+                <!-- Registrar Empresa -->
+                <form id="registration-form" class="sign-in-form" method="post">
+                    <h2 class="title">Registar Empresa</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username" name="nome_corporacao" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password (max = 20)" name="senha_corporacao" maxlength="20" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="E-mail" name="email_corporacao" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-id-card"></i>
+                        <input type="text" placeholder="Contribuinte" name="contribuinte_corporacao" maxlength="9" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="telefone" placeholder="Telefone" name="telefone_corporacao" required maxlength="11" />
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" placeholder="Distrito" name="distrito_corporacao" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" placeholder="Endereço (Rua, Nº, etc.)" name="endereco_corporacao" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-postcode"></i>
+                        <input type="text" placeholder="Código Postal (ex: 1234-567)" name="codigo_postal"
+                            id="codigo-postal" required maxlength="8" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" placeholder="Cole o iframe do Google Maps" name="iframe" required />
+                    </div>
+                    <input type="submit" value="Registrar" class="btn solid" />
+                    <p class="corporacao"><a href="electric.html">Inicio</a></p>
+                </form>
+            </div>
+        </div>
+
+        <!-- Painel de textos -->
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>Entre para nossa Equipa</h3>
+                    <p>
+                        Registe-se e entre a nossa equipa
+                    </p>
+                </div>
+                <img src="svg/log.svg" class="image" alt="" />
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //Função de "-" do codigo postal
+        document.getElementById('codigo-postal').addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 4) {
+                value = value.substring(0, 4) + '-' + value.substring(4, 7);
+            }
+            e.target.value = value;
+        });
+
+        // Função de " " do telefone
+        document.getElementById('telefone').addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
+            if (value.length > 6) {
+                value = value.substring(0, 3) + ' ' + value.substring(3, 6) + ' ' + value.substring(6, 9); // Formato "123 456 789"
+            } else if (value.length > 3) {
+                value = value.substring(0, 3) + ' ' + value.substring(3, 6); // Formato "123 456"
+            }
+            e.target.value = value; // Atualiza o campo com o valor formatado
+        });
+
+
+        // Função para mostrar a mensagem de feedback
+        function showMessage(message, type) {
+            const messageCard = document.getElementById('message-card');
+            const messageText = document.getElementById('message-text');
+
+            messageText.innerText = message;
+
+            messageCard.classList.remove('success', 'error');
+            if (type === 'success') {
+                messageCard.classList.add('success');
+            } else {
+                messageCard.classList.add('error');
+            }
+
+            messageCard.classList.add('show');
+
+            setTimeout(() => {
+                messageCard.classList.remove('show');
+            }, 6000);
+        }
+
+        // Enviar o formulário via AJAX
+        document.getElementById('registration-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+
+            fetch('php/registrar-corporacao.php', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    showMessage(data.message, data.type);
+                })
+                .catch(error => {
+                    showMessage("Erro ao enviar os dados.", 'error');
+                });
+        });
+    </script>
+</body>
+
+</html>

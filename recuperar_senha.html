@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recuperar Senha</title>
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/logincliente.css" />
+    
+    <!-- Icone da pagina -->
+    <link rel="apple-touch-icon" sizes="180x180" href="Imagem/icone/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Imagem/icone/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Imagem/icone/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <!-- Icone da pagina -->
+
+    <!-- Icones de preloader-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/preloader.css">
+    <script src="js/preloader.js" defer></script>
+    <!-- Icones de preloader-->
+
+</head>
+
+<body>
+    <!-- Card de Mensagem (oculto) -->
+    <div id="message-card" class="message-card">
+        <div class="message-content">
+            <span id="message-text"></span>
+        </div>
+    </div>
+
+    <!-- Preloader  -->
+    <div id="preloader">
+        <div class="loader">
+            <i class="fa-solid fa-car fa-bounce"></i>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="forms-container">
+            <div class="signin-signup">
+                <!-- Formulário de recuperação de senha -->
+                <form id="resetPasswordForm" action="php/recuperar_senha.php" class="reset-password-form" method="POST">
+                    <h2 class="title">Recuperar Senha</h2>
+                    <!-- Seleção de tipo de usuário -->
+                    <div class="input-field select-wrapper">
+                        <i class="fas fa-user-alt"></i>
+                        <select name="tipo_usuario" id="tipo_usuario" required class="select-field">
+                            <option value="" disabled selected>Escolha tipo de conta</option>
+                            <option value="cliente">Cliente</option>
+                            <option value="concessionaria">Concessionária</option>
+                        </select>
+                    </div>
+
+                    <!-- Campo para e-mail -->
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Digite seu e-mail" name="email" required />
+                    </div>
+
+                    <input type="submit" value="Enviar link" class="btn solid" />
+                    <p class="corporacao"><a href="loginCliente.html">Voltar ao login</a></p>
+                </form>
+            </div>
+        </div>
+
+        <!-- Painel de textos -->
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>Esqueceu sua senha?</h3>
+                    <p>
+                        Não se preocupe, digite seu e-mail para receber um link de recuperação de senha.
+                    </p>
+                </div>
+                <img src="svg/reset-password-animate.svg" class="image" alt="Animação de Recuperação de Senha" />
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Função para exibir mensagens
+        function showMessage(message, type) {
+            const messageCard = document.getElementById('message-card');
+            const messageText = document.getElementById('message-text');
+
+            messageText.innerText = message;
+
+            // Definindo a cor da borda com base no tipo de mensagem
+            messageCard.style.borderColor = type === 'success' ? 'green' : 'red';
+
+            // Mostrando a mensagem
+            messageCard.classList.add('show');
+
+            // Ocultando a mensagem após 2.5 segundos
+            setTimeout(() => {
+                messageCard.classList.remove('show');
+            }, 2500);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('resetPasswordForm');
+
+            if (form) {
+                form.addEventListener('submit', function (event) {
+                    event.preventDefault();
+
+                    const formData = new FormData(form);
+
+                    fetch('php/recuperar_senha.php', {
+                        method: 'POST',
+                        body: formData,
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.message && data.type) {
+                                showMessage(data.message, data.type);
+                                if (data.type === 'success') {
+                                    form.reset();
+                                }
+                            } else {
+                                console.error('Resposta do servidor não está no formato esperado:', data);
+                                showMessage("Erro ao tentar recuperar a senha.", 'error');
+                            }
+                        })
+                        .catch(() => {
+                            console.error('Erro na requisição fetch.');
+                            showMessage("Erro ao tentar recuperar a senha.", 'error');
+                        });
+                });
+            } else {
+                console.error('O formulário com o ID "resetPasswordForm" não foi encontrado.');
+            }
+        });
+    </script>
+</body>
+
+</html>
