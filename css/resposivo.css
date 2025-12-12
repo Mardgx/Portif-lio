@@ -1,0 +1,95 @@
+@media screen and (max-width: 900px){
+    header .menu-desktop, header .btn-contato{
+        display: none;
+    }
+
+    header .btn-menu-mob{
+        display: block;
+    }
+}
+
+@media screen and (max-width: 878px){
+    /*Responsivo da her*/
+    .hero-site .txt-inicial h1{
+        font-size: 2.6em;
+        line-height: 45px;
+    }
+    
+    .hero-site .txt-inicial p{
+        font-size: 14px;
+    }
+    
+    .hero-site .txt-inicial p span{
+        display: inline;
+    }
+    
+    .hero-site button{
+        font-size: 18px;
+    }
+
+    /*Responsivo vantagen*/
+    .vantagens .itens-container{
+        flex-direction: column;
+    }
+    
+    .vantagens .itens-container .img-itens img{
+        width: 100%;
+
+    }
+
+    .vantagens .itens-container .txt-itens p{
+        margin-bottom: 20px;
+    }
+
+    .vantagens .itens-container .item-1{
+        order: 1;
+    }
+
+    .vantagens .itens-container .item-2{
+        order: 0;
+    }
+
+    /*responsivo contato*/
+    .txt-contato, .icons-contato{
+        display: block;
+        width: 100%;
+    }
+    
+    .contato .txt-contato h3{
+        font-size: 2em;
+        line-height: 40px;
+    }
+
+    .contato .txt-contato p{
+        margin-bottom: 20px;
+    }
+    
+    .contato .icons-contato button{
+        width: 100%;
+    }
+    
+    /*Responsivo carros*/
+    .carros h3{
+        font-size: 2.2em;
+        line-height: 40px;
+        font-weight: 200;
+    }
+    
+    .carros p{
+        margin: 20px 0;
+        font-size: 16px;
+    }
+
+    /*Responsivo Footer*/
+    footer .middle-footer a{
+        color: #fff;
+        margin: 15px 0;
+        display: block;
+    }
+    
+    footer .bottom-footer p{
+        color: #fff;
+        margin-top: 10px;
+        font-size: 14px;
+    }
+}

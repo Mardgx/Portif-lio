@@ -1,0 +1,703 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: black;
+    color: #e7e7e7;
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.image-gradient {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.layer {
+    height: 0;
+    width: 30rem;
+    position: absolute;
+    top: 20%;
+    right: 0;
+    box-shadow: 0 0 700px 15px white;
+    rotate: -30deg;
+    z-index: -1;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5rem;
+    position: relative;
+    z-index: 1000;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3rem;
+    font-weight: 300;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-left: -5%;
+}
+
+nav a {
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    transition: color 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+nav a:hover {
+    color: #a7a7a7;
+}
+
+.btn-signing {
+    background-color: #a7a7a7;
+    color: black;
+    padding: 0.8rem 2rem;
+    border-radius: 20px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-signing:hover {
+    background-color: white;
+}
+
+
+/* Main Content*/
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(90vh - 6rem);
+}
+
+.content {
+    max-width: 40rem;
+    margin-left: 10%;
+    z-index: 999;
+}
+
+.tag-box {
+    position: relative;
+    width: 18rem;
+    height: 2.5rem;
+    border-radius: 50px;
+    background: linear-gradient(to right, #656565, #7f42a7, #6600c5, #5300a0, #757575, #656565);
+    background-size: 200%;
+    animation: animationGradient 2.5s linear infinite;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+@keyframes animationGradient {
+    to {
+        background-position: 200%;
+    }
+}
+
+.tag-box .tag {
+    position: absolute;
+    inset: 3px 3px 3px 3px;
+    background-color: black;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+.tag-box .tag:hover {
+    color: #5300a0;
+}
+
+.content h1 {
+    font-size: 4rem;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    margin: 2rem 0;
+    line-height: 1.2;
+    text-shadow: 0 0 10px rgb(128, 128, 128, 0.418);
+}
+
+.description {
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+    max-width: 35rem;
+    color: gray;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.btn-get-started {
+    text-decoration: none;
+    border: 1px solid #2a2a2a;
+    padding: 0.7rem 1.2rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    transition: background-color 0.2s ease;
+}
+
+.btn-get-started:hover {
+    background-color: #1a1a1a;
+}
+
+.btn-signing-main {
+    text-decoration: none;
+    background-color: lightgray;
+    color: black;
+    padding: 0.6rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    transition: background-color 0.2s ease;
+}
+
+.btn-signing-main:hover {
+    background-color: gray;
+}
+
+.robot-3d {
+    position: absolute;
+    top: 0;
+    right: -20%;
+    height: 100vh;
+    max-height: 800px; 
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Tablet responsive */
+@media (max-width: 1300px) {
+    header {
+        padding: 1rem 0.5rem;
+    }
+
+    .content {
+        margin-top: 85%;
+    }
+
+    .robot-3d {
+        scale: 0.7;
+        top: -20%;
+        right: 2%;
+    }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 0.1rem;
+    }
+
+    .menu-desktop{
+        display: none;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .btn-signing {
+        padding: 0.6rem 1.5rem;
+    }
+
+    .content {
+        margin-top: 5rem;
+    }
+
+    .robot-3d {
+        display: none;
+    }
+
+    .content {
+        max-width: 30rem;
+        margin-left: 10%;
+    }
+
+    .tag-box {
+        width: 12rem;
+    }
+
+    .content h1 {
+        font-size: 2.5rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+
+    .btn-get-started {
+        font-size: 0.8rem;
+        padding: 0.8rem 1.2rem;
+    }
+
+    .btn-signing-main {
+        font-size: 0.8rem;
+        padding: 0.8rem 2rem;
+    }
+}
+
+/* Estilo do Botão do Menu Mobile */
+header .btn-menu-mob {
+    display: none;
+    position: relative;
+    z-index: 10000;
+}
+
+header .btn-menu-mob div {
+    background-color: #fff;
+    height: 3px;
+    margin: 10px 0;
+    transition: .2s;
+}
+
+header .btn-menu-mob .line-menumob1 {
+    width: 30px;
+}
+
+header .btn-menu-mob .line-menumob2 {
+    width: 20px;
+}
+
+header.rolar .btn-menu-mob div {
+    background-color: #000;
+}
+
+header .btn-menu-mob .line-menumob1.ativo1 {
+    transform: rotate(45deg) translate(30%);
+    background-color: #fff;
+}
+
+header .btn-menu-mob .line-menumob2.ativo2 {
+    transform: rotate(-45deg) translate(30%);
+    width: 30px;
+    background-color: #fff;
+}
+
+/* Estilo do Menu Mobile */
+/* Menu Mobile */
+/* Estilo do Menu Mobile */
+header .menu-mobile {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.95); /* fundo escuro quase preto */
+    
+    /* Antes estava width/height 0, agora usamos opacity e pointer-events */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 9999;
+}
+
+/* Quando o menu estiver aberto */
+header .menu-mobile.abrir {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Lista de links dentro do menu mobile */
+header .menu-mobile nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0;
+}
+
+header .menu-mobile nav a {
+    font-size: 2rem;
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.2s ease;
+}
+
+header .menu-mobile nav a:hover {
+    color: #a7a7a7;
+}
+
+
+/* Vantagens */
+
+.interface {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+section.vantagens {
+    padding: 80px 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, #1a1a1a 100%);
+    color: #e7e7e7;
+}
+
+.vantagens .itens-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10%;
+    margin-bottom: 80px;
+    padding: 20px 0;
+    border-bottom: 1px solid #222;
+}
+
+.vantagens .itens-container .img-itens img {
+    max-width: 500px;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.vantagens .itens-container .img-itens img:hover {
+    transform: scale(1.1);
+}
+
+.vantagens .itens-container .txt-itens h3 {
+    font-size: 3em;
+    line-height: 50px;
+    margin-bottom: 20px;
+}
+
+.vantagens .itens-container .txt-itens h3 span {
+    font-weight: 300;
+}
+
+/* EXPERIÊNCIAS*/
+section.experiencias {
+    padding: 60px 0;
+    background: black;
+}
+
+.exp-title {
+    text-align: center;
+    font-size: 2.4rem;
+    margin-bottom: 48px;
+    font-weight: 500;
+    color: #e7e7e7;
+}
+
+.timeline-light {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: 20px;
+  border-left: 2px solid #6e3fa8;
+}
+
+.timeline-item-light {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -9px;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  background-color: #8b4bb9;
+  border-radius: 50%;
+}
+
+.timeline-content {
+  padding: 4px 12px;
+}
+
+.timeline-content .date {
+  font-size: 0.85rem;
+  color: #bdbdbd;
+}
+
+.timeline-content h3 {
+  margin: 4px 0;
+  font-size: 1.2rem;
+  color: #e7e7e7;
+}
+
+.timeline-content p {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #bfbfbf;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .timeline-light {
+    padding-left: 12px;
+  }
+  .timeline-dot {
+    left: -8px;
+  }
+}
+
+/* SECTION SOBRE MIM */
+.sobre-mim {
+    padding: 100px 0;
+    width: 100%;
+}
+
+.sobre-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.sobre-texto {
+    flex: 1;
+}
+
+.sobre-texto h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.sobre-texto p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.sobre-imagem {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.sobre-imagem img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 30px rgba(167, 167, 167, 0.25);
+}
+
+
+@media (max-width: 768px) {
+    .sobre-mim {
+        padding: 60px 0;
+    }
+
+    .sobre-container {
+        flex-direction: column;
+        padding: 0 20px;
+        gap: 40px;
+    }
+
+    .sobre-texto {
+        text-align: center;
+    }
+
+    .sobre-texto h2 {
+        font-size: 2rem;
+    }
+
+    .sobre-texto p {
+        font-size: 0.95rem;
+    }
+
+    .sobre-imagem img {
+        max-width: 260px;
+    }
+}
+
+.projetos {
+    padding: 80px 0;
+    background: #000000;
+    color: #e7e7e7;
+}
+
+.projetos-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4%;
+    justify-content: space-between;
+}
+
+.projeto-item {
+    flex: 1 1 48%;
+    background: #121212;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.projeto-item:hover {
+    transform: translateY(-5px);
+}
+
+.projeto-imagem img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.projeto-conteudo h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.projeto-conteudo p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #bfbfbf;
+}
+
+.projeto-conteudo .btn-get-started {
+    text-decoration: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    background-color: #a7a7a7;
+    color: black;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.projeto-conteudo .btn-get-started:hover {
+    background-color: #fff;
+}
+
+@media (max-width: 768px) {
+    .projetos-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
+.modal-contactos {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-contactos.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: #1a1a2e;
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+    transform: translateY(-50px);
+    transition: transform 0.3s ease;
+}
+
+.modal-contactos.is-visible .modal-content {
+    transform: translateY(0);
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #fff;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+.close-button:hover {
+    color: #99ccff; 
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    border-bottom: 2px solid #334466; 
+    padding-bottom: 10px;
+}
+
+.contact-info p {
+    margin: 10px 0;
+    font-size: 1em;
+}
+
+.contact-info strong {
+    color: #99ccff;
+}
+
+.contact-info a {
+    color: #99ccff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+    color: #cceeff;
+}

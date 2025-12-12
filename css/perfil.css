@@ -1,0 +1,240 @@
+:root {
+    --primary-color: #004d99;  
+    --text-color: #333333;
+    --bg-light: #f4f4f4;
+    --border-light: #e0e0e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    color: var(--text-color);
+}
+
+body {
+    background-color: var(--bg-light);
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.bg-primary,
+.btn-primary {
+    background-color:blackv;
+    border-color: var(--primary-color) !important;
+}
+
+.text-primary,
+.text-success {
+    color: black;
+}
+
+.btn-success,
+.table-success,
+.alert-success {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: #fff !important;
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+header .btn-contato button {
+    width: 140px;
+    height: 45px;
+    font-size: 16px;
+    background-color: transparent;
+    border: 1px solid black;
+    color: black;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+header .btn-contato button:hover {
+    background-color: black;
+    color: white;
+}
+
+
+
+
+header {
+    background-color: #ffffff;
+    width: 100%;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    z-index: 1030;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+header.rolar {
+    padding: 15px 0;
+}
+
+.interface {
+    max-width: 1280px;
+    margin: auto;
+    padding: 0 4%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo img {
+    max-width: 100px;
+}
+
+
+header .menu-desktop a {
+    text-decoration: none;
+    font-weight: 500;
+    color: black !important; 
+}
+
+header .menu-desktop a:hover {
+    color: black; 
+}
+
+.menu-desktop ul {
+    list-style: none;
+}
+
+.menu-desktop li {
+    display: inline-block;
+    margin: 0 30px;
+}
+
+.menu-desktop a {
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.menu-desktop a:hover {
+    color: black;
+}
+
+
+.btn-menu-mob {
+    display: none;
+}
+
+.btn-menu-mob div {
+    height: 3px;
+    background: #000;
+    margin: 8px 0;
+}
+
+.menu-mobile {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-mobile.abrir {
+    display: flex;
+}
+
+.menu-mobile a {
+    color: #fff;
+    font-size: 22px;
+    display: block;
+    padding: 15px;
+}
+
+
+main {
+    flex: 1;
+    padding-bottom: 40px;
+}
+
+.card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* =========================
+   TABS
+========================= */
+.nav-tabs {
+    border-bottom: 2px solid #ddd;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: var(--primary-color) !important;
+    color: #fff !important;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+/* =========================
+   FORM E DOCUMENTOS
+========================= */
+#form_editar_1 {
+    background: #fafafa;
+    border: 1px solid var(--border-light);
+    border-radius: 6px;
+    padding: 15px;
+}
+
+/* =========================
+   PDF MODAL
+========================= */
+.pdf-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+.pdf-content {
+    width: 85%;
+    height: 90%;
+    background: #fff;
+    border-radius: 15px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    background: #000;
+    color: #fff;
+    text-align: center;
+    padding: 30px 0;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+@media (max-width: 768px) {
+    .menu-desktop {
+        display: none;
+    }
+    .btn-menu-mob {
+        display: block;
+    }
+}
